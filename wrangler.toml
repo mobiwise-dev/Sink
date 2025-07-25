@@ -1,11 +1,12 @@
 # wrangler.toml
 
-name                 = "sink"
-main                 = "dist/server/index.mjs"
-compatibility_date   = "2025-05-08"
-compatibility_flags  = ["nodejs_compat"]
-keep_vars            = true
-upload_source_maps   = true
+name                   = "sink"
+main                   = "dist/_worker.js"          # votre Worker Nitro généré
+compatibility_date     = "2025-05-08"
+compatibility_flags    = ["nodejs_compat"]
+keep_vars              = true
+upload_source_maps     = true
+pages_build_output_dir = "dist/public"              # dossier Pages pour vos assets statiques
 
 [assets]
 binding   = "ASSETS"
