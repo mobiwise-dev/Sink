@@ -1,11 +1,12 @@
-name                = "sink"
-compatibility_date  = "2025-05-08"
-compatibility_flags = ["nodejs_compat"]
+name               = "sink"
+compatibility_date = "2025-05-08"
 
-# Build configuration for Cloudflare Pages + Functions
 [build]
   command   = "npm install && npm run build"
-  # dossier statique généré par Nuxt
-  directory = "dist/public"
-  # chemin vers le Worker généré par Nitro
-  functions = "dist/_worker.js"
+  directory = "dist/public"     # vos assets Nuxt
+  functions = "dist/_worker.js" # le Worker Nitro généré
+
+[functions]
+  # Active la compatibilité Node.js pour les modules "node:buffer", etc.
+  compatibility_date  = "2025-05-08"
+  compatibility_flags = ["nodejs_compat"]
