@@ -1,0 +1,22 @@
+name = "sink"
+compatibility_date = "2025-07-25"
+compatibility_flags = ["nodejs_compat"]
+
+# Indique à Pages où trouver votre worker Nitro
+main = "dist/_worker.js"
+
+# Pour les assets (optionnel si vous gérez via config Pages)
+[assets]
+binding = "ASSETS"
+directory = "dist/public"
+
+[kv_namespaces]
+binding = "KV"
+id      = "ef93d42dc4b34969bab404d2e80f8dd3"
+
+[ai]
+binding = "AI"
+
+[analytics_engine_datasets]
+binding = "ANALYTICS"
+dataset = "sink"
