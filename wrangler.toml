@@ -1,24 +1,11 @@
-# wrangler.toml
+name                = "sink"
+compatibility_date  = "2025-05-08"
+compatibility_flags = ["nodejs_compat"]
 
-name                   = "sink"
-main                   = "dist/_worker.js"
-compatibility_date     = "2025-05-08"
-compatibility_flags    = ["nodejs_compat"]
-keep_vars              = true
-upload_source_maps     = true
-pages_build_output_dir = "dist/public"
-
-[assets]
-binding   = "SINK_ASSETS"     # anciennement "ASSETS"
-directory = "dist/public"
-
-[ai]
-binding = "AI"
-
-[[analytics_engine_datasets]]
-binding = "ANALYTICS"
-dataset = "sink"
-
-[[kv_namespaces]]
-binding = "KV"
-id      = "ef93d42dc4b34969bab404d2e80f8dd3"
+# Build configuration for Cloudflare Pages + Functions
+[build]
+  command   = "npm install && npm run build"
+  # dossier statique généré par Nuxt
+  directory = "dist/public"
+  # chemin vers le Worker généré par Nitro
+  functions = "dist/_worker.js"
